@@ -1,0 +1,41 @@
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Byte-compiled / optimized / compiled files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
+
+# Database files (if using local development databases like SQLite)
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment variables
+.env
+.env.*
+
+# Uploaded files or user-generated content (if applicable)
+media/
+uploads/
+
+# Test reports or coverage files
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Build artifacts
+dist/
+build/
