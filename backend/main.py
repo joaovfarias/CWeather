@@ -6,9 +6,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
+
+FRONTEND_URL = os.getenv("FRONTEND_URL")  # set this on Render
+
 origins = [
-    "http://localhost",
-    "http://localhost:3000",
+    FRONTEND_URL,
 ]
 
 API_KEY = os.getenv("API_KEY")
