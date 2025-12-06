@@ -1,0 +1,662 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ----- DAY BACKGROUND ----- */
+.sun {
+  position: absolute;
+  top: 60px;
+  right: 90px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, #ffeb3b, #fbc02d);
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(255, 230, 0, 0.7);
+  animation: sunPulse 4s ease-in-out infinite;
+}
+
+@keyframes sunPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cloud {
+  position: absolute;
+  background: radial-gradient(
+    circle at 30% 0%,
+    #ffffff 0%,
+    #f5f7fb 40%,
+    #e9edf3 100%
+  );
+  width: 220px;
+  height: 80px;
+  border-radius: 90px;
+  opacity: 0.9;
+  box-shadow: 0 12px 1px rgba(9, 82, 226, 0.12),
+    inset 0 8px 1px rgba(255, 255, 255, 0.6);
+  filter: blur(0.5px);
+  overflow: visible;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: radial-gradient(
+    circle at 20% 30%,
+    #ffffff 0%,
+    #f5f7fb 45%,
+    #e9edf3 100%
+  );
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(9, 82, 226, 0.08);
+}
+
+.cloud::before {
+  width: 120px;
+  height: 110px;
+  top: -40px;
+  left: 6px;
+}
+
+.cloud::after {
+  width: 100px;
+  height: 90px;
+  top: -36px;
+  right: 8px;
+}
+
+.cloud-1 {
+  top: 200px;
+  left: 20px;
+  animation: cloudFloat 10s ease-in-out infinite;
+}
+
+.cloud-2 {
+  top: 280px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: cloudFloat 14s ease-in-out infinite;
+}
+
+.cloud-3 {
+  top: 360px;
+  right: 20px;
+  animation: cloudFloat 12s ease-in-out infinite;
+}
+
+.cloud-4 {
+  top: 310px;
+  left: 410px;
+  animation: cloudFloat 16s ease-in-out infinite;
+}
+
+@keyframes cloudFloat {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(25px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ----- NIGHT BACKGROUND ----- */
+
+.night-sky {
+  background: radial-gradient(circle at top, #0b1b3b, #020617 70%);
+}
+
+.moon {
+  position: absolute;
+  top: 80px;
+  right: 80px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #ffffff, #dcdcdc 60%, #b3b3b3);
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.4);
+  animation: moonGlow 4s ease-in-out infinite;
+}
+
+@keyframes moonGlow {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+.star {
+  display: none;
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: starTwinkle 3s infinite ease-in-out;
+}
+
+.star-1,
+.star-2,
+.star-3,
+.star-4,
+.star-5,
+.star-6,
+.star-7,
+.star-8,
+.star-9,
+.star-10,
+.star-11,
+.star-12,
+.star-13,
+.star-14,
+.star-15 {
+  display: block;
+}
+
+.star-1 {
+  top: 18%;
+  left: 70%;
+}
+.star-2 {
+  top: 22%;
+  left: 40%;
+}
+.star-3 {
+  top: 30%;
+  left: 10%;
+}
+.star-4 {
+  top: 15%;
+  left: 85%;
+}
+.star-5 {
+  top: 50%;
+  left: 60%;
+}
+.star-6 {
+  top: 40%;
+  left: 30%;
+}
+.star-7 {
+  top: 55%;
+  left: 80%;
+}
+.star-8 {
+  top: 75%;
+  left: 25%;
+}
+.star-9 {
+  top: 65%;
+  left: 50%;
+}
+.star-10 {
+  top: 35%;
+  left: 75%;
+}
+.star-11 {
+  top: 28%;
+  left: 55%;
+}
+.star-12 {
+  top: 48%;
+  left: 15%;
+}
+.star-13 {
+  top: 60%;
+  left: 90%;
+}
+.star-14 {
+  top: 80%;
+  left: 40%;
+}
+.star-15 {
+  top: 70%;
+  left: 20%;
+}
+
+@keyframes starTwinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* -----  RAIN BACKGROUND ----- */
+
+.rain-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+
+  /* gradient fix */
+  background: linear-gradient(to bottom, #373d4a, #1a1d23);
+}
+
+/* Cloud wrapper positions (used by various background components) */
+.cloud-wrapper {
+  position: absolute;
+  width: 260px;
+  height: 180px;
+  pointer-events: none;
+}
+
+/* ----- RAIN ----- */
+.cloud-wrapper .rain {
+  position: absolute;
+  top: 65px;
+  width: 150px;
+  height: 600px;
+  left: 40%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Individual drop */
+.cloud-wrapper .rain .drop {
+  position: absolute;
+  top: 0; /* start near the cloud */
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.35)
+  );
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transform-origin: top left;
+  will-change: top, transform, opacity;
+  /* per-drop duration/delay set inline from component */
+  animation-name: dropFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* front stronger layer */
+.rain-front .drop {
+  opacity: 0.6;
+  width: 2.4px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.98),
+    rgba(255, 255, 255, 0.5)
+  );
+}
+
+/* back subtle layer */
+.rain-back .drop {
+  opacity: 0.28;
+  width: 1.6px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.25)
+  );
+  transform: scale(1.02) rotate(-6deg);
+}
+
+@keyframes dropFall {
+  0% {
+    top: 0%;
+    transform: translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  6% {
+    opacity: 0.9;
+  }
+  92% {
+    opacity: 0.95;
+  }
+  100% {
+    top: 120%; /* slightly past the bottom for a natural drop */
+    transform: translateX(14px) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+/* front stronger layer */
+.rain-front {
+  opacity: 0.38;
+  animation-duration: 1.2s;
+}
+
+/* back subtle layer */
+.rain-back {
+  opacity: 0.2;
+  transform: scale(1.05);
+  animation-duration: 1.9s;
+}
+
+@keyframes rain-fall {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 24px; /* movimento mais natural */
+  }
+}
+
+/* Drops rendered directly in the fixed .rain-bg (viewport-anchored) */
+.rain-bg .drop {
+  position: absolute;
+  top: -10px; /* start slightly above the viewport */
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.35)
+  );
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transform-origin: top left;
+  will-change: transform, opacity;
+  animation-name: dropToBottom;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* when inline duration present it overrides this; keep fallback */
+  animation-duration: var(--duration, 1.2s);
+  animation-delay: var(--delay, 0s);
+  pointer-events: none;
+  /* allow per-drop fall distance via custom property set inline */
+  --fallDistance: 120vh;
+}
+
+.rain-bg .drop.front {
+  width: 2.6px;
+}
+.rain-bg .drop.back {
+  width: 1.6px;
+  opacity: 0.65;
+}
+
+/* Full-width rain container that fills the viewport */
+.rain-bg .rain-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+@keyframes dropToBottom {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  6% {
+    opacity: 0.9;
+  }
+  92% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(var(--fallDistance)) translateX(14px) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+/* Thunderstorm specific visuals */
+.thunder-bg {
+  background: linear-gradient(to bottom, #22262c, #0b0c10);
+}
+
+/* full-screen quick flash for lightning */
+.thunder-flash {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.95);
+  pointer-events: none;
+  animation: flashFade 420ms ease-out forwards;
+  z-index: 1000;
+}
+
+@keyframes flashFade {
+  0% {
+    opacity: 0.95;
+  }
+  60% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* lightning bolt - thin vertical strike with branches using box-shadow */
+.lightning {
+  position: fixed;
+  top: 0;
+  width: 6px;
+  height: 60vh;
+  pointer-events: none;
+  transform: translateX(-50%);
+  z-index: 1001;
+  filter: drop-shadow(0 4px 18px rgba(255, 255, 255, 0.6));
+  animation: boltFlicker 420ms linear forwards;
+}
+
+.lightning::before,
+.lightning::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0.2));
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.lightning::before {
+  height: 100%;
+  top: 0;
+}
+
+.lightning::after {
+  height: 60%;
+  top: 6vh;
+  left: 60%;
+  transform: rotate(12deg) translateX(-50%);
+  opacity: 0.85;
+}
+
+@keyframes boltFlicker {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scaleY(0.8);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%) scaleY(1.05);
+  }
+  30% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Overcast: dull grey background and muted clouds */
+.overcast-bg {
+  background: linear-gradient(to bottom, #272727, #5a5a5a);
+}
+
+.overcast-bg .cloud {
+  background: radial-gradient(
+    circle at 55% 55%,
+    #979696 0%,
+    #616060 45%,
+    #848383 100%
+  );
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08),
+    inset 0 6px 12px rgba(255, 255, 255, 0.02);
+  filter: none;
+  opacity: 0.95;
+}
+
+.overcast-bg .cloud::before,
+.overcast-bg .cloud::after {
+  background: radial-gradient(
+    circle at 20% 30%,
+    #959393 0%,
+    #898787 50%,
+    #8a8989 100%
+  );
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+}
+
+.overcast-bg .rain-cloud,
+.overcast-bg .rain-cloud::before,
+.overcast-bg .rain-cloud::after {
+  background: linear-gradient(180deg, #9b9b9b 0%, #808080 60%);
+  box-shadow: none;
+  filter: none;
+  opacity: 0.95;
+}
+
+/* ----- SNOW BACKGROUND ----- */
+
+.snow-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  /* soft cool tint for snowy scenes */
+  background: linear-gradient(to bottom, #989b9e, #cdd6e0);
+}
+
+.snow-bg .snow-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* individual flake */
+.snow-bg .flake {
+  position: absolute;
+  top: -10px; /* start slightly above viewport */
+  width: var(--flake-size, 8px);
+  height: var(--flake-size, 8px);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.9) 60%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+  border-radius: 50%;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  opacity: 0.95;
+  will-change: transform, opacity;
+  animation-name: snowFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* per-flake duration/delay set inline from component */
+  animation-duration: var(--duration, 12s);
+  animation-delay: var(--delay, 0s);
+  /* allow per-flake fall distance via custom property set inline */
+  --fallDistance: 120vh;
+}
+
+.snow-bg .flake.front {
+  width: 12px;
+  height: 12px;
+  opacity: 0.98;
+}
+.snow-bg .flake.back {
+  width: 6px;
+  height: 6px;
+  opacity: 0.6;
+  transform: scale(0.9);
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  6% {
+    opacity: 0.9;
+  }
+  50% {
+    /* mid-fall: gentle drift */
+    transform: translateY(calc(var(--fallDistance) * 0.5)) translateX(18px)
+      rotate(180deg);
+  }
+  100% {
+    transform: translateY(var(--fallDistance)) translateX(40px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* small horizontal sway for subtle motion when flakes are anchored near clouds */
+.snow-sway {
+  animation: sway 3.8s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
