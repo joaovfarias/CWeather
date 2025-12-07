@@ -12,6 +12,7 @@ FRONTEND_URL = os.getenv("FRONTEND_URL")  # set this on Render
 
 origins = [
     FRONTEND_URL,
+    "http://localhost:3000"  # para desenvolvimento local
 ]
 
 API_KEY = os.getenv("API_KEY")

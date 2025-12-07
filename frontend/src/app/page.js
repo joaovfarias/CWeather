@@ -84,7 +84,35 @@ export default function Home() {
                 {"Type a valid location"}
               </div>
             )}
+
+            <p className="text-white/70 mt-4 text-center">
+              Powered by{" "}
+              <a
+                href="https://www.weatherapi.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                WeatherAPI.com
+              </a>
+            </p>
+
+            <p className="text-white/50 mt-2 text-center text-sm">
+              Created by{" "}
+              <a
+                href="https://github.com/joaovfarias"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                joaovfarias
+              </a>
+            </p>
           </div>
+
+          <footer className="fixed bottom-6 left-1/2 transform -translate-x-1/2 text-white/50 text-center text-sm">
+            First search may take up to 50 seconds.
+          </footer>
         </div>
       ) : (
         <main className="relative min-h-screen text-white">
