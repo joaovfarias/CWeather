@@ -109,10 +109,6 @@ export default function Home() {
               </a>
             </p>
           </div>
-
-          <footer className="fixed bottom-6 left-1/2 transform -translate-x-1/2 text-white/50 text-center text-sm">
-            First search may take up to 50 seconds.
-          </footer>
         </div>
       ) : (
         <main className="relative min-h-screen text-white">
