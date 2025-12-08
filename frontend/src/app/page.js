@@ -1,12 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import SunnyBackground from "../../components/sunnybackground";
-import NightBackground from "../../components/nightbackground";
-import ModerateRainBackground from "../../components/rainbackground";
-import ThunderStormBackground from "../../components/thunderstormbackground";
-import OvercastBackground from "../../components/overcastbackground";
-import SnowBackground from "../../components/snowbackground";
+import Background from "../../components/background";
 
 export default function Home() {
   const [city, setCity] = useState("");
@@ -112,27 +107,7 @@ export default function Home() {
         </div>
       ) : (
         <main className="relative min-h-screen text-white">
-          <div className="absolute inset-0">
-            {(condition?.toLowerCase().includes("overcast") ||
-              condition?.toLowerCase().includes("mist") ||
-              condition?.toLowerCase().includes("fog")) &&
-            data.current?.is_day === 1 ? (
-              <OvercastBackground />
-            ) : condition?.toLowerCase().includes("rain") ||
-              condition?.toLowerCase().includes("drizzle") ||
-              condition?.toLowerCase().includes("sleet") ? (
-              <ModerateRainBackground />
-            ) : condition?.toLowerCase().includes("thundery") ? (
-              <ThunderStormBackground />
-            ) : condition?.toLowerCase().includes("snow") ||
-              condition?.toLowerCase().includes("blizzard") ? (
-              <SnowBackground />
-            ) : data.current?.is_day === 1 ? (
-              <SunnyBackground />
-            ) : (
-              <NightBackground />
-            )}
-          </div>
+          <Background current={data.current} condition={condition} />
           <div className="relative w-full grid grid-cols-3 items-start mb-4 px-7 py-6">
             {/* Left corner */}
             <div className="text-left">
